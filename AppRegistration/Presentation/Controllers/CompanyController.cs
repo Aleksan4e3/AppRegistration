@@ -58,5 +58,15 @@ namespace Presentation.Controllers
 
             return RedirectToAction(nameof(Index));
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            await companyService.Remove(id);
+
+            var companies = await companyService.GetAsync();
+
+            return PartialView("_Companies", companies);
+        }
     }
 }

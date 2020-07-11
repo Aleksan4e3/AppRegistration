@@ -62,5 +62,11 @@ namespace BLL.Services
 
             return model;
         }
+
+        public async Task Remove(Guid id)
+        {
+            await companyRepository.RemoveAsync(id);
+            await dataContext.SaveChangeAsync();
+        }
     }
 }
