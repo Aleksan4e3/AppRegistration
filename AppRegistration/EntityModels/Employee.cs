@@ -10,7 +10,7 @@ namespace EntityModels
         public string Name { get; set; }
         public string Patronymic { get; set; }
         public DateTime EmploymentDate { get; set; }
-        public Position Position { get; set; }
+        public Position? Position { get; set; }
 
         public Guid? CompanyId { get; set; }
         public virtual Company Company { get; set; }

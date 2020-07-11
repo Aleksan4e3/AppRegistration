@@ -45,6 +45,7 @@ namespace BLL.Services
                 Patronymic = employee.Patronymic,
                 EmploymentDate = employee.EmploymentDate,
                 Position = employee.Position,
+                CompanyId = employee.CompanyId,
                 Company = employee.Company == null ? new CompanyViewModel() : Map(employee.Company)
             };
         }
@@ -53,6 +54,20 @@ namespace BLL.Services
         {
             return new Employee
             {
+                Surname = model.Surname,
+                Name = model.Name,
+                Patronymic = model.Patronymic,
+                EmploymentDate = model.EmploymentDate,
+                Position = model.Position,
+                CompanyId = model.CompanyId
+            };
+        }
+
+        public Employee Map(EditEmployeeViewModel model)
+        {
+            return new Employee
+            {
+                Id = model.Id,
                 Surname = model.Surname,
                 Name = model.Name,
                 Patronymic = model.Patronymic,

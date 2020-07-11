@@ -22,11 +22,13 @@ namespace Presentation.Controllers
             this.companyService = companyService;
         }
 
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
             return View(await employeeService.GetAsync());
         }
 
+        [HttpGet]
         public async Task<IActionResult> Create()
         {
             return View(await CreateEmployeeAsync());
@@ -45,6 +47,25 @@ namespace Presentation.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Edit(Guid id)
+        {
+            return View(await CreateEmployeeAsync(id));
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Edit(EditEmployeeViewModel model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            await employeeService.UpdateAsync(model);
+
+            return RedirectToAction(nameof(Index));
+        }
+
         [NonAction]
         public async Task<CreateEmployeeViewModel> CreateEmployeeAsync()
         {
@@ -53,6 +74,29 @@ namespace Presentation.Controllers
             return new CreateEmployeeViewModel
             {
                 EmploymentDate = DateTime.Now.Date,
+                Companies = companies.Select(x => new SelectListItem
+                {
+                    Text = x.Name,
+                    Value = x.Id.ToString()
+                }).ToList()
+            };
+        }
+
+        [NonAction]
+        public async Task<EditEmployeeViewModel> CreateEmployeeAsync(Guid id)
+        {
+            var companies = await companyService.GetAsync();
+            var employee = await employeeService.GetAsync(id);
+
+            return new EditEmployeeViewModel
+            {
+                Id = employee.Id,
+                Name = employee.Name,
+                Surname = employee.Surname,
+                Patronymic = employee.Patronymic,
+                EmploymentDate = employee.EmploymentDate,
+                Position = employee.Position,
+                CompanyId = employee.CompanyId,
                 Companies = companies.Select(x => new SelectListItem
                 {
                     Text = x.Name,

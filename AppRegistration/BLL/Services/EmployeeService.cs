@@ -51,5 +51,15 @@ namespace BLL.Services
 
             return model;
         }
+
+        public async Task<EditEmployeeViewModel> UpdateAsync(EditEmployeeViewModel model)
+        {
+            var employee = mapper.Map(model);
+
+            employeeRepository.Update(employee);
+            await dataContext.SaveChangeAsync();
+
+            return model;
+        }
     }
 }
