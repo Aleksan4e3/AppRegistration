@@ -1,3 +1,5 @@
+using BLL.Services;
+using BLL.Services.Contracts;
 using DAL.Repositories;
 using DAL.Repositories.Contracts;
 using Microsoft.Extensions.DependencyInjection;
@@ -10,6 +12,8 @@ namespace Presentation.Infrastructure.Configurations
         {
             services.AddTransient<ICompanyRepository, CompanyRepository>();
             services.AddTransient<IEmployeeRepository, EmployeeRepository>();
+            services.AddTransient<ICompanyService, CompanyService>();
+            services.AddTransient<IMapper, Mapper>();
         }
     }
 }
