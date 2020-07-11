@@ -17,7 +17,7 @@ namespace DAL.Configurations
             builder.Property(x => x.Surname).IsRequired();
             builder.Property(x => x.Patronymic).IsRequired();
             builder.Property(x => x.EmploymentDate).IsRequired();
-            builder.Property(x => x.Position).IsRequired();
+            builder.Property(x => x.Position).IsRequired(false);
         }
     }
 }
