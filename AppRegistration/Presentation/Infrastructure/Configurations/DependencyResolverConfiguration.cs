@@ -13,6 +13,7 @@ namespace Presentation.Infrastructure.Configurations
             services.AddTransient<ICompanyRepository, CompanyRepository>();
             services.AddTransient<IEmployeeRepository, EmployeeRepository>();
             services.AddTransient<ICompanyService, CompanyService>();
+            services.AddTransient<IEmployeeService, EmployeeService>();
             services.AddTransient<IMapper, Mapper>();
         }
     }

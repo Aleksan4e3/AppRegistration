@@ -8,5 +8,7 @@ namespace BLL.Services.Contracts
         CompanyViewModel Map(Company company);
         Company Map(CreateCompanyViewModel model);
         Company Map(CompanyViewModel model);
+        EmployeeViewModel Map(Employee employee);
+        Employee Map(CreateEmployeeViewModel model);
     }
 }

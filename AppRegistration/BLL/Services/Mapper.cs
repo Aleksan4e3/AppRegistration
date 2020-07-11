@@ -34,5 +34,32 @@ namespace BLL.Services
                 LegalForm = model.LegalForm
             };
         }
+
+        public EmployeeViewModel Map(Employee employee)
+        {
+            return new EmployeeViewModel
+            {
+                Id = employee.Id,
+                Surname = employee.Surname,
+                Name = employee.Name,
+                Patronymic = employee.Patronymic,
+                EmploymentDate = employee.EmploymentDate,
+                Position = employee.Position,
+                Company = employee.Company == null ? new CompanyViewModel() : Map(employee.Company)
+            };
+        }
+
+        public Employee Map(CreateEmployeeViewModel model)
+        {
+            return new Employee
+            {
+                Surname = model.Surname,
+                Name = model.Name,
+                Patronymic = model.Patronymic,
+                EmploymentDate = model.EmploymentDate,
+                Position = model.Position,
+                CompanyId = model.CompanyId
+            };
+        }
     }
 }
