@@ -1,1 +1,10 @@
 # AppRegistration
+
+Get Started
+1. Run AppRegistration.sln
+2. Select "DAL" project, set this one as Startup Project. Go to Context/AppDbContextFactory.cs
+and change the connectionString according the connection type you will use.
+3. Open package manager console and create database by running "update-database CompanySetNullWhenDelete"
+4. Select "Presentation" project, change connectionString in "appsettings.json" as before
+5. Right click on "libman.json" and choose "Restore Client-Side Libraries"
+That's all! You can run the project
