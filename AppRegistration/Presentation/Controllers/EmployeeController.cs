@@ -66,6 +66,16 @@ namespace Presentation.Controllers
             return RedirectToAction(nameof(Index));
         }
 
+        [HttpGet]
+        public async Task<IActionResult> Delete(Guid id)
+        {
+            await employeeService.RemoveAsync(id);
+
+            var employees = await employeeService.GetAsync();
+
+            return PartialView("_Employees", employees);
+        }
+
         [NonAction]
         public async Task<CreateEmployeeViewModel> CreateEmployeeAsync()
         {

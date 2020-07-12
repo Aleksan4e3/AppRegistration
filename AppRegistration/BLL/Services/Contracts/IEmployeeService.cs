@@ -11,5 +11,6 @@ namespace BLL.Services.Contracts
         Task<EmployeeViewModel> GetAsync(Guid id);
         Task<CreateEmployeeViewModel> CreateAsync(CreateEmployeeViewModel model);
         Task<EditEmployeeViewModel> UpdateAsync(EditEmployeeViewModel model);
+        Task RemoveAsync(Guid id);
     }
 }
