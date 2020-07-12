@@ -5,7 +5,6 @@ using System.Threading.Tasks;
 using BLL.Services.Contracts;
 using DAL.Context;
 using DAL.Repositories.Contracts;
-using EntityModels;
 using Microsoft.EntityFrameworkCore;
 using ViewModels.ViewModels;
 
