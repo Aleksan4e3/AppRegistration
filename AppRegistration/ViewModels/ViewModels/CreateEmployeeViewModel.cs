@@ -17,7 +17,7 @@ namespace ViewModels.ViewModels
         [Required]
         public string Patronymic { get; set; }
 
-        [Required]
+        [Required, Display(Name = "Employment date")]
         public DateTime EmploymentDate { get; set; }
 
         public Position? Position { get; set; }

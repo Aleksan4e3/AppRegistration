@@ -8,7 +8,7 @@ namespace ViewModels.ViewModels
         [Required]
         public string Name { get; set; }
 
-        [Required]
+        [Required, Display(Name = "Legal form")]
         public LegalForm LegalForm { get; set; }
     }
 }

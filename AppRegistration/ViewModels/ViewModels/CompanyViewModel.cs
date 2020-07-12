@@ -9,10 +9,10 @@ namespace ViewModels.ViewModels
         [Required]
         public Guid Id { get; set; }
 
-        [Required]
+        [Required, Display(Name = "Company")]
         public string Name { get; set; }
 
-        [Required]
+        [Required, Display(Name = "Legal form")]
         public LegalForm LegalForm { get; set; }
     }
 }
