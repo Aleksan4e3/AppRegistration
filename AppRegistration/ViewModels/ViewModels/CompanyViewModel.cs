@@ -12,6 +12,9 @@ namespace ViewModels.ViewModels
         [Required, Display(Name = "Company")]
         public string Name { get; set; }
 
+        [Required]
+        public int Staff { get; set; }
+
         [Required, Display(Name = "Legal form")]
         public LegalForm LegalForm { get; set; }
     }

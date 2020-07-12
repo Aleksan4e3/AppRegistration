@@ -12,6 +12,7 @@ namespace BLL.Services
             {
                 Id = company.Id,
                 Name = company.Name,
+                Staff = company.Employees.Count,
                 LegalForm = company.LegalForm
             };
         }
