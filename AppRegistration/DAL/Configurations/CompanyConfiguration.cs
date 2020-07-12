@@ -19,7 +19,7 @@ namespace DAL.Configurations
             builder.HasMany(x => x.Employees)
                 .WithOne(x => x.Company)
                 .HasForeignKey(x => x.CompanyId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.SetNull);
         }
     }
 }
