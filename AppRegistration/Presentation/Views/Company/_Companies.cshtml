@@ -1,0 +1,44 @@
+@model IEnumerable<CompanyViewModel>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Staff)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LegalForm)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Staff)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LegalForm)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    <a href=""
+                       data-ajax="true"
+                       data-ajax-confirm="Are you sure?"
+                       data-ajax-url="@Url.Action("Delete",new { id = item.Id })"
+                       data-ajax-update="#companies">
+                        Delete
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

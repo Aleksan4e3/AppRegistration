@@ -1,0 +1,19 @@
+@model IEnumerable<CompanyViewModel>
+
+@{
+    ViewData["Title"] = "Companies";
+}
+
+<h1>Companies</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+
+<div id="companies">
+    <partial name="_Companies" model="@Model" />
+</div>
+
+<div>
+    <a asp-action="Index" asp-controller="Home">Back to Main</a>
+</div>
